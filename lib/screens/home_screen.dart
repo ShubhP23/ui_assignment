@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+enum _buttonSelected { doubtSolver, onlineTutor }
+
 // ignore: use_key_in_widget_constructors
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/home';
@@ -12,6 +14,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
+  _buttonSelected? clicked;
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -166,8 +170,19 @@ class _HomeScreenState extends State<HomeScreen> {
                             // ignore: prefer_const_literals_to_create_immutables
                             children: [
                               MaterialButton(
+                                shape: clicked == _buttonSelected.doubtSolver
+                                    ? const UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.white, width: 3.0))
+                                    : const UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFF7363DF),
+                                        ),
+                                      ),
                                 onPressed: () {
-                                  setState(() {});
+                                  setState(() {
+                                    clicked = _buttonSelected.doubtSolver;
+                                  });
                                 },
                                 child: const Text(
                                   'Doubt Solver',
@@ -178,10 +193,21 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               MaterialButton(
+                                shape: clicked == _buttonSelected.onlineTutor
+                                    ? const UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Colors.white, width: 3.0))
+                                    : const UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFF7363DF),
+                                        ),
+                                      ),
                                 onPressed: () {
-                                  setState(() {});
+                                  setState(() {
+                                    clicked = _buttonSelected.onlineTutor;
+                                  });
                                 },
-                                highlightColor: Colors.white,
+                                // highlightColor: Colors.white,
                                 child: const Text(
                                   'Online Tutor',
                                   style: TextStyle(
