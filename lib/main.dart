@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
+import 'screens/introduction_carousel.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,9 +11,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: HomeScreen.routeName,
+      initialRoute: IntroductionCarousel.routeName,
       routes: {
-        HomeScreen.routeName: (ctx) => HomeScreen(),
+        IntroductionCarousel.routeName: (ctx) => IntroductionCarousel(),
       },
     );
   }
